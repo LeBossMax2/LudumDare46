@@ -176,5 +176,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69bd6c3a99106404b9d84be19c7c4853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedFactor: 4
+  speedFactor: 5
   targetName: Chicken
