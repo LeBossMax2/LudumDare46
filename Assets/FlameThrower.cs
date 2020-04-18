@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlameThrower : MonoBehaviour
+public class FlameThrower : WaveActivable
 {
+    public bool autoActivate = false;
     public float activeTime;
     public float inactiveTime;
 
@@ -23,12 +24,12 @@ public class FlameThrower : MonoBehaviour
     {
         if (!active)
         {
-            inactiveTimer += Time.fixedDeltaTime;
-
-            if (inactiveTimer >= inactiveTime)
+            if (autoActivate)
             {
-                inactiveTimer -= inactiveTime;
-                Activate();
+                inactiveTimer += Time.fixedDeltaTime;
+
+                if (inactiveTimer >= inactiveTime)
+                    Activate();
             }
         }
         else
@@ -36,16 +37,14 @@ public class FlameThrower : MonoBehaviour
             activeTimer += Time.fixedDeltaTime;
 
             if (activeTimer >= activeTime)
-            {
-                activeTimer -= activeTime;
                 Deactivate();
-            }
         }
     }
 
-    private void Activate()
+    public override void Activate()
     {
         active = true;
+        activeTimer = 0;
         anim.SetTrigger("Start");
         anim.ResetTrigger("Stop");
     }
@@ -53,6 +52,7 @@ public class FlameThrower : MonoBehaviour
     private void Deactivate()
     {
         active = false;
+        inactiveTimer = 0;
         anim.SetTrigger("Stop");
         anim.ResetTrigger("Start");
     }

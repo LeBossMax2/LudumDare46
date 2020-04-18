@@ -38,12 +38,17 @@ public class MovementController : MonoBehaviour
         if (velocity.sqrMagnitude > 0)
             direction = velocity.normalized;
 
-        if (animator != null)
-        {
-            animator.SetFloat("DirectionX", direction.x);
-            animator.SetFloat("DirectionY", direction.y);
-            animator.SetFloat("Speed", velocity.sqrMagnitude);
-        }
+        if (direction.y < -0.7) // DOWN 0
+            animator.SetInteger("Direction", 0);
+        else if (direction.y > 0.7) // UP 1
+            animator.SetInteger("Direction", 1);
+
+        if (direction.x < -0.7) // LEFT 2
+            animator.SetInteger("Direction", 2);
+        else if (direction.x > 0.7) // RIGHT 3
+            animator.SetInteger("Direction", 3);
+
+        animator.SetFloat("Speed", velocity.sqrMagnitude);
 
         if (Input.GetAxis("Fire1") > 0.5)
         {
@@ -81,6 +86,7 @@ public class MovementController : MonoBehaviour
                             fj2.enabled = true;
                         }
 
+                        animator.SetBool("Hold", true);
                         //objectTaken.transform.parent = objectTakeParent;
                         //objectTaken.transform.localPosition = Vector3.zero;
                     }
@@ -101,6 +107,7 @@ public class MovementController : MonoBehaviour
                     fj2.connectedBody = null;
                     fj2.enabled = false;
                     objectTaken = null;
+                    animator.SetBool("Hold", false);
                 }
             }
         }
