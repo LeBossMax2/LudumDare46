@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    public Animator animator;
     public float speedFactor;
     public float throwSpeed;
 
+    private Animator animator;
     private Rigidbody2D rb2;
     private FixedJoint2D fj2;
     private Vector2 velocity = Vector2.zero;
@@ -18,9 +18,11 @@ public class MovementController : MonoBehaviour
     private List<GameObject> objectsToTake = new List<GameObject>();
 
     private bool fire1Active = false;
+    private bool fire2Active = false;
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         rb2 = GetComponent<Rigidbody2D>();
         fj2 = GetComponent<FixedJoint2D>();
         fj2.enabled = false;
@@ -45,11 +47,23 @@ public class MovementController : MonoBehaviour
 
         if (Input.GetAxis("Fire1") > 0.5)
         {
-            //attack / take
+            //attack
 
             if (!fire1Active)
             {
                 fire1Active = true;
+                animator.SetTrigger("Attack");
+            }
+        }
+        else
+            fire1Active = false;
+
+        if (Input.GetAxis("Fire2") > 0.5)
+        {
+            //shield / take
+            if (!fire2Active)
+            {
+                fire2Active = true;
                 if (objectTaken == null)
                 {
                     if (objectsToTake.Count > 0)
@@ -91,12 +105,7 @@ public class MovementController : MonoBehaviour
             }
         }
         else
-            fire1Active = false;
-
-        if (Input.GetAxis("Fire2") > 0.5)
-        {
-            //shield
-        }
+            fire2Active = false;
     }
 
     private void FixedUpdate()
