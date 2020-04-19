@@ -6,6 +6,7 @@ public class MoveToward : MonoBehaviour
 {
     public float speedFactor;
     public string targetName;
+    public bool active = false;
 
     private GameObject target;
 
@@ -23,9 +24,14 @@ public class MoveToward : MonoBehaviour
         target = GameObject.Find(targetName);
     }
 
+    public void Activate()
+    {
+        active = true;
+    }
+
     private void FixedUpdate()
     {
-        if (target != null)
+        if (target != null && active)
             rb2.velocity = (target.transform.position - transform.position).normalized * speedFactor;
     }
 }

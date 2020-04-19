@@ -7,8 +7,10 @@ public class FlameThrower : WaveActivable
     public bool autoActivate = false;
     public float activeTime;
     public float inactiveTime;
+    public float soundDelay = 0;
 
     private Animator anim;
+    private AudioSource audio;
 
     private float activeTimer;
     private float inactiveTimer;
@@ -18,6 +20,7 @@ public class FlameThrower : WaveActivable
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -47,6 +50,7 @@ public class FlameThrower : WaveActivable
         activeTimer = 0;
         anim.SetTrigger("Start");
         anim.ResetTrigger("Stop");
+        audio.PlayDelayed(soundDelay);
     }
 
     private void Deactivate()

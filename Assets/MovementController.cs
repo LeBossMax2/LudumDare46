@@ -7,6 +7,9 @@ public class MovementController : MonoBehaviour
     public float speedFactor;
     public float throwSpeed;
 
+    public AudioSource pickupAudio;
+    public AudioSource attackAudio;
+
     private Animator animator;
     private Rigidbody2D rb2;
     private FixedJoint2D fj2;
@@ -57,7 +60,11 @@ public class MovementController : MonoBehaviour
             if (!fire1Active)
             {
                 fire1Active = true;
-                animator.SetTrigger("Attack");
+                if (objectTaken == null)
+                {
+                    animator.SetTrigger("Attack");
+                    attackAudio.Play();
+                }
             }
         }
         else
@@ -87,6 +94,7 @@ public class MovementController : MonoBehaviour
                         }
 
                         animator.SetBool("Hold", true);
+                        pickupAudio.Play();
                         //objectTaken.transform.parent = objectTakeParent;
                         //objectTaken.transform.localPosition = Vector3.zero;
                     }
@@ -108,6 +116,7 @@ public class MovementController : MonoBehaviour
                     fj2.enabled = false;
                     objectTaken = null;
                     animator.SetBool("Hold", false);
+                    pickupAudio.Play();
                 }
             }
         }

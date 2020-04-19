@@ -17,6 +17,27 @@ TextureImporter:
   - first:
       213: -4011237537912345111
     second: fire_blob_4
+  - first:
+      213: 4131224153130177504
+    second: fire_blob_5
+  - first:
+      213: -3419160865578756927
+    second: fire_blob_6
+  - first:
+      213: 5420411196850620079
+    second: fire_blob_7
+  - first:
+      213: 8423908056217305758
+    second: fire_blob_8
+  - first:
+      213: -4940109375636850814
+    second: fire_blob_9
+  - first:
+      213: 3035309195868779949
+    second: fire_blob_10
+  - first:
+      213: 1576628059253173427
+    second: fire_blob_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -127,7 +148,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b588094c6bf67b948ac0d943002e5c8d
+      spriteID: 6f971659475bc3746aed821f5649a3d5
       internalID: 2482564532944788438
       vertices: []
       indices: 
@@ -148,7 +169,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67eaeb944f2d88b40b9ddb1ea3ad3f30
+      spriteID: fa740b3613e884d4d920a19110d75713
       internalID: -2637895395953778840
       vertices: []
       indices: 
@@ -169,7 +190,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e15698c29bed644e872761eb1909e4f
+      spriteID: c779d1798f378ae489708e04974d45fd
       internalID: -1934626730313078032
       vertices: []
       indices: 
@@ -190,7 +211,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14d80e4a7c6538b47a14205b8d0421ee
+      spriteID: 2866cc27628f21943a8b4736286d30d8
       internalID: -6137545340436951279
       vertices: []
       indices: 
@@ -211,8 +232,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d9d70aa2d171e940892f7e2230f8954
+      spriteID: 412a0c03e9b47a14984c2b57df05069a
       internalID: -4011237537912345111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ce69952419c564f95ccdd16b304b96
+      internalID: 4131224153130177504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156fe542f9bb34e46a336d7514630fb8
+      internalID: -3419160865578756927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 691b1eff278ae2544b2730375836a6da
+      internalID: 5420411196850620079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc062221df7e1c44fbee421352f1ec74
+      internalID: 8423908056217305758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281df1892855f8c41817d990aa18f40f
+      internalID: -4940109375636850814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_10
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801fc6c578e259644aa71445481ea0ce
+      internalID: 3035309195868779949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_blob_11
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b43d077ae3b734397965c11ba3d7c2
+      internalID: 1576628059253173427
       vertices: []
       indices: 
       edges: []

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5047925416186822458}
   - component: {fileID: 2862139056735704557}
   - component: {fileID: 4396004993041503241}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FireBlob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,3 +178,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedFactor: 5
   targetName: Chicken
+  active: 0
