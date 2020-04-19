@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: tiles_fire_thrower_up
   m_EditorClassIdentifier: Assembly-CSharp::PrefabTile
   Sprite: {fileID: -7995846982363831464, guid: a14908f6189ae5d44a2212c955fcd2be, type: 3}
-  Prefab: {fileID: 3057467734574676486, guid: 1144255762497c84ab9ae8a44732b848, type: 3}
+  Prefab: {fileID: 0}
   Rotation: {x: 0, y: 180, z: 90}

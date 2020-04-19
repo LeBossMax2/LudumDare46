@@ -11,7 +11,8 @@ public class PrefabTile : TileBase
     public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
     {
         tileData.sprite = Sprite;
-        tileData.gameObject = Prefab;
+        if (tileData.gameObject == null)
+            tileData.gameObject = Prefab;
         tileData.colliderType = Tile.ColliderType.Sprite;
     }
 
@@ -22,7 +23,7 @@ public class PrefabTile : TileBase
             go.transform.localRotation = Quaternion.Euler(Rotation);
         }
 
-        return base.StartUp(position, tilemap, go);
+        return true;
     }
 
 }
