@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class WaveManager : MonoBehaviour
+public class WaveManager : WaveActivable
 {
     [Serializable]
     public struct Wave
@@ -16,18 +16,27 @@ public class WaveManager : MonoBehaviour
 
     public Tilemap map;
     public List<Wave> waves;
+    public bool active = true;
 
     private float timer = 0;
     private int currentWave = -1;
 
+    public override void Activate()
+    {
+        active = true;
+    }
+
     private void FixedUpdate()
     {
-        timer += Time.fixedDeltaTime;
+        if (active)
+        {
+            timer += Time.fixedDeltaTime;
 
-        if (currentWave == -1)
-            NextWave();
-        else if (currentWave < waves.Count && timer >= waves[currentWave].duration)
-            NextWave();
+            if (currentWave == -1)
+                NextWave();
+            else if (currentWave < waves.Count && timer >= waves[currentWave].duration)
+                NextWave();
+        }
     }
 
     private void NextWave()

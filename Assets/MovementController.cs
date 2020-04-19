@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MovementController : MonoBehaviour
 {
@@ -18,10 +19,26 @@ public class MovementController : MonoBehaviour
 
     private float objectTakenMass = 0;
     private GameObject objectTaken;
-    private List<GameObject> objectsToTake = new List<GameObject>();
+    public List<GameObject> objectsToTake { get; } = new List<GameObject>();
 
     private bool fire1Active = false;
     private bool fire2Active = false;
+
+    public void Pickup(GameObject obj)
+    {
+        objectTaken = obj;
+        Rigidbody2D objRB = objectTaken.GetComponent<Rigidbody2D>();
+        if (objRB != null)
+        {
+            objectTakenMass = objRB.mass;
+            objRB.mass = 1;
+            fj2.connectedBody = objRB;
+            fj2.enabled = true;
+        }
+
+        animator.SetBool("Hold", true);
+        pickupAudio.Play();
+    }
 
     private void Awake()
     {
@@ -82,22 +99,11 @@ public class MovementController : MonoBehaviour
                     if (objectsToTake.Count > 0)
                     {
                         // Take object
-                        objectTaken = objectsToTake.OrderBy(@object => (@object.transform.position - this.transform.position).sqrMagnitude).First();
-
-
-                        Rigidbody2D objRB = objectTaken.GetComponent<Rigidbody2D>();
-                        if (objRB != null)
-                        {
-                            objectTakenMass = objRB.mass;
-                            objRB.mass = 1;
-                            fj2.connectedBody = objRB;
-                            fj2.enabled = true;
-                        }
-
-                        animator.SetBool("Hold", true);
-                        pickupAudio.Play();
-                        //objectTaken.transform.parent = objectTakeParent;
-                        //objectTaken.transform.localPosition = Vector3.zero;
+                        GameObject obj = objectsToTake.OrderBy(@object => (@object.transform.position - this.transform.position).sqrMagnitude).First();
+                        if (obj.GetComponent<Chest>() != null)
+                            obj.GetComponent<Chest>().Open(this);
+                        else
+                            Pickup(obj);
                     }
                 }
                 else
@@ -128,15 +134,5 @@ public class MovementController : MonoBehaviour
     private void FixedUpdate()
     {
         rb2.velocity = velocity * speedFactor;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        objectsToTake.Add(other.gameObject);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        objectsToTake.Remove(collision.gameObject);
     }
 }
