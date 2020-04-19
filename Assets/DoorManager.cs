@@ -14,10 +14,12 @@ public class DoorManager : WaveActivable
 
     private Vector3Int pos;
     private new BoxCollider2D collider;
+    private AudioSource openSound;
 
     private void Awake()
     {
         collider = GetComponent<BoxCollider2D>();
+        openSound = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -30,6 +32,7 @@ public class DoorManager : WaveActivable
     {
         map.SetTile(pos, openTile);
         collider.enabled = true;
+        openSound.Play();
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
