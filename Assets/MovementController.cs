@@ -78,6 +78,7 @@ public class MovementController : MonoBehaviour
                 fire2Active = true;
                 if (objectTaken == null)
                 {
+                    objectsToTake.RemoveAll(obj => obj == null);
                     if (objectsToTake.Count > 0)
                     {
                         // Take object
